@@ -1,0 +1,23 @@
+server:
+  port: 8112
+  session:
+    cookie:
+      name: UISESSION
+zuul:
+  routes:
+    spring-security-oauth-resource:
+      path: /spring-security-oauth-resource/**
+      url: http://localhost:4200
+    oauth:
+      path: /oauth/**
+      url: http://localhost:8113/auth/oauth
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 94718a0002fb61b7f5a7
+            clientSecret: b1f2c303f1ae62413237ce681ab3b56a4a0b705b
